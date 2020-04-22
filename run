@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Kill all python processes.
+pkill python3
+pkill python
+
+# Transfer over model data, reset to origin, and put back model data.
+[ ! -d "/root/model_data" ] && mkdir /root/model_data
+cp -r /root/stock-trading/model_data/* /root/model_data/
+cp /root/stock-trading/live_trading_stocks_info.json /root/live_trading_stocks_info.json
+cd /root/stock-trading/ && git fetch origin && git reset --hard origin/master
+cp -r /root/model_data/* /root/stock-trading/model_data/
+cp /root/live_trading_stocks_info.json /root/stock-trading/live_trading_stocks_info.json
+[ -d "/root/stock-trading/training_data_progress" ] && rm -r /root/stock-trading/training_data_progress
+
+
+# Start trading.
+cd /root/stock-trading/ && python3 main.py
