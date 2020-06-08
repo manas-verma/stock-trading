@@ -1,26 +1,26 @@
 {
     "stocks": [
-        "SNAP",
-        "RIG",
-        "USWS",
-        "TOPS",
-        "BIOL",
-        "FET",
-        "TRNX",
-        "WLL",
-        "BRZU",
-        "CHK",
-        "PACD",
-        "GRPN",
-        "NOG",
-        "CPE",
-        "DNR",
-        "VAL",
-        "CDEV",
-        "AR",
-        "NBR",
-        "TEVA",
-        "BAC",
-        "KO"
+        "AAL",
+        "FTCH",
+        "AMD",
+        "CREX",
+        "NFLX",
+        "UBER",
+        "AZUL",
+        "DAL"
+    ],
+
+    "eval_stocks": [
+        "AAPL",
+        "MAR",
+        "AMC",
+        "DLB",
+        "TSLA",
+        "M",
+        "NVDA",
+        "DIS",
+        "SAVA",
+        "NFLX",
+        "UBER"
     ]
 }

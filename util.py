@@ -29,6 +29,12 @@ def get_stock_universe_list():
         stocks = json.load(file)
     return stocks["stocks"]
 
+def get_eval_stock_list():
+    stocks = {"eval_stocks": []}
+    with open("stock_universe.json", "r") as file:
+        stocks = json.load(file)
+    return stocks["eval_stocks"]
+
 def save_live_trading_stocks_info(stocks_info):
     with open("live_trading_stocks_info.json", "w+") as file:
         file.write(json.dumps(stocks_info, sort_keys=True, indent=4))
@@ -66,3 +72,13 @@ def load_agent_evaluations():
     with open("agent_evaluations.json", "r") as file:
         evaluations = json.load(file)
     return evaluations
+
+def save_training_report(report):
+    with open("training_report.json", "w+") as file:
+        file.write(json.dumps(report, sort_keys=True, indent=4))
+
+def load_training_report():
+    report = dict()
+    with open("training_report.json", "r") as file:
+        report = json.load(file)
+    return report

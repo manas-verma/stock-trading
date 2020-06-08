@@ -1,7 +1,6 @@
 import json
 from flask import Flask, request, jsonify, send_file
 import util
-import train
 import os.path
 from os import path
 
@@ -35,13 +34,6 @@ def get_image():
     else:
        filename = '/root/stock-trading/training_data_progress/trainstep_LAST.png'
     return send_file(filename, mimetype='image/png')
-
-@app.route('/start_training', methods=['GET'])
-def start_training():
-    train.create_datasets()
-    train.start_training()
-
-
 
 
 if __name__ == '__main__':

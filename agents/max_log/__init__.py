@@ -1,0 +1,1 @@
+from .max_log import MaxLog

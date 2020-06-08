@@ -1,7 +1,7 @@
 import util
 import numpy as np
 
-LOG_EQUITY_WEIGHT_THRESHOLD = -0.04
+EQUITY_WEIGHT_THRESHOLD = -0.04
 
 class Selector:
 
@@ -32,12 +32,12 @@ class Selector:
             master_ranking = self.get_ranking(self.get_master_agent_evaluation(ticker))
             weight_master_action = np.exp(master_ranking) / (np.exp(master_ranking) + np.exp(special_ranking))
 
-            log_equity_weight = (master_ranking * np.exp(master_ranking) + special_ranking * np.exp(special_ranking)) \
+            equity_weight = (master_ranking * np.exp(master_ranking) + special_ranking * np.exp(special_ranking)) \
                                     / (np.exp(master_ranking) + np.exp(special_ranking))
-            if log_equity_weight < LOG_EQUITY_WEIGHT_THRESHOLD:
+            if equity_weight < EQUITY_WEIGHT_THRESHOLD:
                 continue
 
-            equity_weight = np.exp(log_equity_weight)
+            equity_weight += EQUITY_WEIGHT_THRESHOLD + 0.01
 
             self.stocks_info[ticker] = {
                 "equity_weight": equity_weight,
